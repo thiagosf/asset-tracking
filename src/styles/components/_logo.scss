@@ -1,0 +1,14 @@
+.logo {
+  display: flex;
+  @include e('image') {
+    margin-right: 10px;
+    img {
+      width: 30px;
+    }
+  }
+  @include e('text') {
+    font-size: 20px;
+    font-weight: $weight-bold;
+    text-transform: lowercase;
+  }
+}

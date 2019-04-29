@@ -1,0 +1,35 @@
+// Block Element
+// @access public
+// @param {String} $element - Element's name
+@mixin e($element) {
+  &__#{$element} {
+    @content;
+  }
+}
+
+// Block Modifier
+// @access public
+// @param {String} $modifier - Modifier's name
+@mixin m($modifier) {
+  &--#{$modifier} {
+    @content;
+  }
+}
+
+@mixin loader ($color: white) {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: rotateLoader 800ms ease-in-out infinite;
+  border: 2px solid rgba($color, 1);
+  border-bottom-color: rgba($color, 0);
+}
+
+@keyframes rotateLoader {
+  0% {
+    transform: rotate(0deg)
+  }
+  100% {
+    transform: rotate(359deg)
+  }
+}
