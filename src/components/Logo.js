@@ -7,7 +7,7 @@ export default class Logo extends Component {
     return (
       <div className="logo">
         <div className="logo__image">
-          <img src={logoSource} />
+          <img src={logoSource} alt={settings.title} />
         </div>
         <div className="logo__text">
           {settings.title}

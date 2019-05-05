@@ -4,9 +4,19 @@ export default {
     followEvolution2: 'investimentos.',
     followEvolution3: 'De forma muito simples.'
   },
+  titles: {
+    login: 'Login'
+  },
   accountLinks: {
     login: 'Login',
     createAccount: 'Criar conta',
     forgetPassword: 'Esqueci minha senha'
+  },
+  user: {
+    email: 'E-mail',
+    password: 'Senha'
+  },
+  actions: {
+    enter: 'Entrar'
   }
 }

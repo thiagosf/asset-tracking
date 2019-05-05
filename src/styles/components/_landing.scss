@@ -3,7 +3,7 @@
   height: calc(100vh - 70px);
   justify-content: space-between;
   flex-direction: column;
-  padding: $small-gutter;
+  padding: 0 $small-gutter $small-gutter $small-gutter;
   .account-links {
     align-self: center;
     @include tabletUp {

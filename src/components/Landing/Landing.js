@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import { AppLayout } from '../Layouts'
+import { AccountLinks } from '../'
 import logoSource from '../../assets/svg/logo.svg'
 import { translate } from '../../locales'
+import settings from '../../settings'
 
 class Landing extends Component {
   render () {
@@ -11,7 +13,7 @@ class Landing extends Component {
           <span></span>
           <div className="landing-box">
             <div className="landing-box__image">
-              <img src={logoSource} />
+              <img src={logoSource} alt={settings.title} />
             </div>
             <div className="landing-box__text">
               <span className="landing-box__text__small">{translate('landing.followEvolution1')}</span>
@@ -19,17 +21,7 @@ class Landing extends Component {
               <span className="landing-box__text__small">{translate('landing.followEvolution3')}</span>
             </div>
           </div>
-          <ul className="account-links">
-            <li>
-              <a href="#" className="account-links__link">{translate('accountLinks.login')}</a>
-            </li>
-            <li>
-              <a href="#" className="account-links__link">{translate('accountLinks.createAccount')}</a>
-            </li>
-            <li>
-              <a href="#" className="account-links__link">{translate('accountLinks.forgetPassword')}</a>
-            </li>
-          </ul>
+          <AccountLinks />
         </div>
       </AppLayout>
     )

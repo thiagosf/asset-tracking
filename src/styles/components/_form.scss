@@ -1,0 +1,91 @@
+.form {
+  @include e('control') {
+    margin: 0 0 20px 0;
+    position: relative;
+    @include m('error') {
+      .form__input {
+        &::after {
+          background: $red-orange-gradient;
+        }
+      }
+      .form__input__input {
+        color: $red;
+      }
+    }
+    @include e('errors') {
+      margin-top: 10px;
+      li {
+        font-size: 12px;
+        font-style: italic;
+      }
+    }
+  }
+  @include e('label') {
+    display: block;
+    font-size: 14px;
+  }
+  @include e('input') {
+    position: relative;
+    &::after {
+      background: $blue-pink-gradient;
+      height: 2px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      content: "";
+      pointer-events: none;
+    }
+    @include e('input') {
+      border: 0;
+      width: 100%;
+      background: transparent !important;
+      outline: none !important;
+      box-shadow: none !important;
+      color: white;
+      font-size: 16px;
+      line-height: 1;
+      height: 40px;
+    }
+  }
+  @include e('buttons') {}
+}
+
+.button {
+  display: flex;
+  border: 0;
+  border-radius: 3px;
+  background: red;
+  padding: 0 20px;
+  background: $blue-gradient;
+  color: white;
+  font-size: 16px;
+  font-weight: $bold-weight;
+  cursor: pointer;
+  position: relative;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  &::after {
+    @include loader();
+    content: "";
+    display: none;
+  }
+  @include m('block') {
+    width: 100%;
+  }
+  @include m('small') {
+    font-size: 14px;
+    padding: 0 10px;
+    height: 30px;
+    font-weight: $regular-weight;
+  }
+  &[disabled] {
+    span {
+      display: none;
+    }
+    &::after {
+      display: block;
+    }
+  }
+}

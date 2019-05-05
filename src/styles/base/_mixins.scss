@@ -12,9 +12,9 @@
 
 @mixin loader ($color: white) {
   border-radius: 50%;
-  width: 20px;
-  height: 20px;
-  animation: rotateLoader 800ms ease-in-out infinite;
+  width: 16px;
+  height: 16px;
+  animation: rotateLoader 500ms linear infinite;
   border: 2px solid rgba($color, 1);
   border-bottom-color: rgba($color, 0);
 }
