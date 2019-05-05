@@ -1,15 +1,9 @@
-// Block Element
-// @access public
-// @param {String} $element - Element's name
 @mixin e($element) {
   &__#{$element} {
     @content;
   }
 }
 
-// Block Modifier
-// @access public
-// @param {String} $modifier - Modifier's name
 @mixin m($modifier) {
   &--#{$modifier} {
     @content;
@@ -31,5 +25,11 @@
   }
   100% {
     transform: rotate(359deg)
+  }
+}
+
+@mixin tabletUp {
+  @media (min-width: 768px) {
+    @content;
   }
 }

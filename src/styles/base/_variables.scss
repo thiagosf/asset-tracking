@@ -18,8 +18,18 @@ $blue-pink-gradient: linear-gradient(90deg, #77C3F7, #ECC5FD);
 // fonts
 
 $base-font: 'PT Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$regular-weight: 400;
+$bold-weight: 700;
 
 // font weights
 
 $weight-regular: regular;
 $weight-bold: bold;
+
+// sizes
+
+$header-height: 70px;
+
+// grid
+
+$small-gutter: 20px;

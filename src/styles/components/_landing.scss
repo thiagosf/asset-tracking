@@ -1,0 +1,50 @@
+.landing-page {
+  display: flex;
+  height: calc(100vh - 70px);
+  justify-content: space-between;
+  flex-direction: column;
+  padding: $small-gutter;
+  .account-links {
+    align-self: center;
+    @include tabletUp {
+      align-self: end;
+    }
+  }
+}
+.landing-box {
+  align-self: end;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  align-self: center;
+  @include tabletUp {
+    width: 500px;
+  }
+  @include e('image') {
+    align-self: start;
+    img {
+      width: 150px;
+      @include tabletUp {
+        width: 200px;
+      }
+    }
+  }
+  @include e('text') {
+    @include e('small') {
+      display: block;
+      font-size: 16px;
+      @include tabletUp {
+        font-size: 26px;
+      }
+    }
+    @include e('large') {
+      display: block;
+      font-size: 32px;
+      font-weight: $bold-weight;
+      @include tabletUp {
+        font-size: 48px;
+      }
+    }
+  }
+}
