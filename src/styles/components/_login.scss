@@ -1,6 +1,6 @@
 .account-links {
   margin: 0;
-  padding: 0;
+  padding: 0 0 $small-gutter 0;
   list-style: none;
   li {
     display: inline;
@@ -26,7 +26,7 @@
   height: calc(100vh - 70px);
   justify-content: space-between;
   flex-direction: column;
-  padding: 0 $small-gutter $small-gutter $small-gutter;
+  padding: 0 $small-gutter;
   .account-links {
     align-self: center;
     @include tabletUp {
@@ -38,5 +38,5 @@
 .login {
   min-width: 300px;
   align-self: center;
-  padding: 0 $small-gutter;
+  padding: $small-gutter;
 }

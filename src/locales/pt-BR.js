@@ -18,5 +18,16 @@ export default {
   },
   actions: {
     enter: 'Entrar'
+  },
+  validations: {
+    users: {
+      email: {
+        validEmail: 'E-mail inválido'
+      },
+      password: {
+        string: 'Digite sua senha',
+        minLength: 'Sua senha precisa ter ao menos 6 caracteres'
+      }
+    }
   }
 }

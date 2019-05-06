@@ -3,6 +3,7 @@ import { AppLayout } from '../Layouts'
 import { AccountLinks, FormControl, ButtonSpinner } from '../'
 import { translate } from '../../locales'
 import { form } from '../../utils'
+import { userValidator } from '../../validators'
 
 class Login extends Component {
   state = {
@@ -22,7 +23,7 @@ class Login extends Component {
           <span></span>
           <div className="login">
             <h1 className="page-title">{translate('titles.login')}</h1>
-            <form action="#" className="form" onSubmit={this._handleSubmit}>
+            <div className="form">
               <FormControl
                 errors={form.getErrors('email', errors)}
                 label={translate('user.email')}
@@ -39,7 +40,6 @@ class Login extends Component {
               />
               <div className="form__buttons">
                 <ButtonSpinner
-                  type='submit'
                   block={true}
                   disabled={sending}
                   onClick={this._handleSubmit}
@@ -47,7 +47,7 @@ class Login extends Component {
                   {translate('actions.enter')}
                 </ButtonSpinner>
               </div>
-            </form>
+            </div>
           </div>
           <AccountLinks login={false} />
         </div>
@@ -63,8 +63,20 @@ class Login extends Component {
     this.setState({ model })
   };
 
-  _handleSubmit = () => {
-    this.setState({ sending: true })
+  _handleSubmit = event => {
+    this.setState({ errors: {} }, () => {
+      const data = Object.assign({}, this.state.model)
+      userValidator.login(data).then(result => {
+        if (result.success) {
+          this.props.login(data)
+        } else {
+          this.setState({ errors: result.errors })
+          this.props.notificate(result.message)
+        }
+      }).catch(error => {
+        this.props.notificate(error.message)
+      })
+    })
   };
 }
 
