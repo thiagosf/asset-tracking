@@ -47,11 +47,11 @@
     "postcss-normalize": "7.0.1",
     "postcss-preset-env": "6.6.0",
     "postcss-safe-parser": "4.0.1",
-    "react": "^16.8.6",
+    "react": "^16.9.0",
     "react-app-polyfill": "^1.0.0",
     "react-cookie": "^3.1.2",
     "react-dev-utils": "^9.0.0",
-    "react-dom": "^16.8.6",
+    "react-dom": "^16.9.0",
     "react-redux": "^7.0.3",
     "react-router": "^5.0.0",
     "react-router-dom": "^5.0.0",
@@ -75,7 +75,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "storybook": "start-storybook"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -144,5 +145,9 @@
     "plugins": [
       "@babel/plugin-proposal-export-default-from"
     ]
+  },
+  "devDependencies": {
+    "@storybook/addon-knobs": "^5.2.0",
+    "@storybook/react": "^5.2.0"
   }
 }

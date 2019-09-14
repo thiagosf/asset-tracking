@@ -8,11 +8,11 @@ export default (state = initialState, action) => {
 
   switch (action.type) {
     case 'SET_NOTIFICATION':
-    case 'BEFORE_SEND':
-      nextState = Object.assign({}, state, {
+      nextState = {
+        ...state,
         message: action.message,
         messageType: action.messageType
-      })
+      }
       break
 
     default:

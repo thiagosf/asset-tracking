@@ -16,7 +16,25 @@
       }
     }
     a {
-
+      text-decoration: none;
+      padding: 1px 5px;
+      position: relative;
+      &::after {
+        transition: $transition;
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 0%;
+        border-radius: 2px;
+      }
+      &:hover {
+        &::after {
+          height: 100%;
+          background: rgba(white, 0.1);
+        }
+      }
     }
   }
 }

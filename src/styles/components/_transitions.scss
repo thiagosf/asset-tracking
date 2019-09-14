@@ -1,0 +1,28 @@
+.transition {
+  @include m('scale') {
+    animation: transitionScale 300ms forwards;
+  }
+  @include m('fade') {
+    animation: transitionFade 300ms forwards;
+  }
+}
+
+@keyframes transitionScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes transitionFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

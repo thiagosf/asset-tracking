@@ -12,9 +12,9 @@ class FormControl extends Component {
   render () {
     return (
       <div className={this._getClasses()}>
-        <label htmlFor={this.props.name} className="form__label">{this.props.label}</label>
+        <label className="form__label">{this.props.label}</label>
         <div className="form__input">
-          <input type={this.props.name} className="form__input__input" onChange={this._onChange} />
+          <input type={this.props.type} name={this.props.name} className="form__input__input" onChange={this._onChange} />
         </div>
         {this._getErrors()}
         {this.props.children}

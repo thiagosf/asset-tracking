@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 import { AppLayout } from '../Layouts'
-import { AccountLinks, FormControl, ButtonSpinner } from '../'
+import { AccountLinks, FormControl, ButtonSpinner, Transition } from '../'
 import { translate } from '../../locales'
 import { form } from '../../utils'
 import { userValidator } from '../../validators'
 
 class Login extends Component {
+  static defaultProps = {
+    notificate: () => {}
+  };
+
   state = {
     sending: false,
     errors: {},
@@ -19,35 +23,38 @@ class Login extends Component {
     const { sending, errors } = this.state
     return (
       <AppLayout>
+
         <div className="login-page">
           <span></span>
           <div className="login">
-            <h1 className="page-title">{translate('titles.login')}</h1>
-            <div className="form">
-              <FormControl
-                errors={form.getErrors('email', errors)}
-                label={translate('user.email')}
-                name='email'
-                type='email'
-                onChange={this._onChange}
-              />
-              <FormControl
-                errors={form.getErrors('password', errors)}
-                label={translate('user.password')}
-                name='password'
-                type='password'
-                onChange={this._onChange}
-              />
-              <div className="form__buttons">
-                <ButtonSpinner
-                  block={true}
-                  disabled={sending}
-                  onClick={this._handleSubmit}
-                >
-                  {translate('actions.enter')}
-                </ButtonSpinner>
+            <Transition type='scale'>
+              <h1 className="page-title">{translate('titles.login')}</h1>
+              <div className="form">
+                <FormControl
+                  errors={form.getErrors('email', errors)}
+                  label={translate('user.email')}
+                  name='email'
+                  type='email'
+                  onChange={this._onChange}
+                />
+                <FormControl
+                  errors={form.getErrors('password', errors)}
+                  label={translate('user.password')}
+                  name='password'
+                  type='password'
+                  onChange={this._onChange}
+                />
+                <div className="form__buttons">
+                  <ButtonSpinner
+                    block={true}
+                    disabled={sending}
+                    onClick={this._handleSubmit}
+                  >
+                    {translate('actions.enter')}
+                  </ButtonSpinner>
+                </div>
               </div>
-            </div>
+            </Transition>
           </div>
           <AccountLinks login={false} />
         </div>
