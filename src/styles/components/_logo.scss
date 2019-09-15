@@ -1,5 +1,5 @@
 .logo {
-  display: flex;
+  display: inline-flex;
   @include e('image') {
     margin-right: 10px;
     img {

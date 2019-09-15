@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
-import Logo from './Logo'
 import { Link } from 'react-router-dom'
-import { links } from '../utils'
+import { Logo } from '../molecules'
+import { links } from '../../utils'
 
 export default class Header extends Component {
   render () {

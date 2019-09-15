@@ -1,5 +1,7 @@
-import { Landing } from '../components/Landing'
-import { Login } from '../components/Login'
+import {
+  Landing,
+  Login
+} from '../components/pages'
 
 export default {
   routes: [{

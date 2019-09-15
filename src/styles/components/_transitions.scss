@@ -1,16 +1,28 @@
 .transition {
+  opacity: 0;
   @include m('scale') {
-    animation: transitionScale 300ms forwards;
+    animation: transitionScale 300ms forwards $easeOutSine;
   }
   @include m('fade') {
-    animation: transitionFade 300ms forwards;
+    animation: transitionFade 300ms forwards $easeOutSine;
+  }
+  @include m('fromDown') {
+    animation: transitionFromDown 300ms forwards $easeOutSine;
+  }
+  @include m('fromUp') {
+    animation: transitionFromUp 300ms forwards $easeOutSine;
+  }
+  @include m('fromLeft') {
+    animation: transitionFromLeft 300ms forwards $easeOutSine;
+  }
+  @include m('fromRight') {
+    animation: transitionFromRight 300ms forwards $easeOutSine;
   }
 }
 
 @keyframes transitionScale {
   from {
-    opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.9);
   }
   to {
     opacity: 1;
@@ -24,5 +36,45 @@
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes transitionFromDown {
+  from {
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes transitionFromUp {
+  from {
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes transitionFromLeft {
+  from {
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes transitionFromRight {
+  from {
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
   }
 }

@@ -5,11 +5,21 @@ Acompanhe seus investimentos de forma fácil
 ## Dev
 
 ```bash
-npm start
+yarn start
+```
+
+## Storybook
+
+```bash
+yarn run storybook
 ```
 
 ## Test
 
 ```bash
-npm Test
+yarn Test
 ```
+
+## Todo
+
+- [ ] Criar testes

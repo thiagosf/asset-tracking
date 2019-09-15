@@ -57,7 +57,7 @@
 
 .button {
   transition: $transition;
-  display: flex;
+  display: inline-flex;
   border: 0;
   border-radius: 3px;
   background: red;
@@ -84,6 +84,10 @@
     padding: 0 10px;
     height: 30px;
     font-weight: $regular-weight;
+    &::after {
+      width: 10px;
+      height: 10px;
+    }
   }
   &[disabled] {
     span {

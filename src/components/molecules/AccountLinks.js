@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { translate } from '../locales'
-import { links } from '../utils'
+import { translate } from '../../locales'
+import { links } from '../../utils'
 
 class AccountLinks extends Component {
   static defaultProps = {
