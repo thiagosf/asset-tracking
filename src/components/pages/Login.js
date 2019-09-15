@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { AppLayout } from '../templates'
-import { FormControl, ButtonSpinner, Transition } from '../atoms'
+import { FormControl, Button, Transition } from '../atoms'
 import { AccountLinks } from '../molecules'
 import { translate } from '../../locales'
 import { form } from '../../utils'
@@ -46,13 +46,15 @@ class Login extends Component {
                   onChange={this._onChange}
                 />
                 <div className="form__buttons">
-                  <ButtonSpinner
+                  <Button
                     block={true}
                     disabled={sending}
+                    spinner={sending}
                     onClick={this._handleSubmit}
+                    intent='info'
                   >
                     {translate('actions.enter')}
-                  </ButtonSpinner>
+                  </Button>
                 </div>
               </div>
             </Transition>

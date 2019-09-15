@@ -1,10 +1,10 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, select, text } from '@storybook/addon-knobs'
-import { FormControl } from '../../src/components/atoms'
+import { FormControl } from '../../src/components/molecules'
 import { decoratorContainerLeft } from '../helpers'
 
-const stories = storiesOf('atoms/FormControl', module)
+const stories = storiesOf('molecules/FormControl', module)
 stories.addDecorator(decoratorContainerLeft)
 stories.addDecorator(withKnobs)
 

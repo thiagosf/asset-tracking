@@ -1,3 +1,4 @@
 export Transition from './Transition'
-export ButtonSpinner from './ButtonSpinner'
-export FormControl from './FormControl'
+export Button from './Button'
+export Link from './Link'
+export Icon from './Icon'

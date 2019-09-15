@@ -1,0 +1,84 @@
+@mixin buttonIntent ($color, $percentage: 20%) {
+  background: $color;
+  box-shadow:
+    -5px -5px 20px rgba(darken($color, $percentage), 1) inset,
+    0 0 0 1px rgba(black, 0.1)
+  ;
+  &:hover {
+    box-shadow:
+      -5px -5px 20px rgba(darken($color, $percentage), 1) inset,
+      0 0 0 5px rgba(black, 0.2)
+    ;
+  }
+}
+
+.button {
+  transition: $transition;
+  display: inline-flex;
+  border: 0;
+  border-radius: 3px;
+  padding: 0 20px;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+  height: 50px;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 0 1px 1px rgba(black, 0.3);
+  @include buttonIntent($dark-gray, 10%);
+  &::after {
+    @include loader();
+    content: "";
+    display: none;
+  }
+  @include m('block') {
+    width: 100%;
+  }
+  @include m('small') {
+    font-size: 14px;
+    padding: 0 10px;
+    height: 30px;
+    font-weight: $regular-weight;
+    &::after {
+      width: 10px;
+      height: 10px;
+    }
+  }
+  @include m('large') {
+    font-size: 24px;
+    padding: 0 40px;
+    height: 70px;
+    font-weight: $regular-weight;
+    &::after {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  @include m('spinner') {
+    span {
+      display: none;
+    }
+    &::after {
+      display: block;
+    }
+  }
+  &[disabled] {
+    pointer-events: none;
+  }
+  @include m('primary') {
+    @include buttonIntent($purple, 10%);
+  }
+  @include m('danger') {
+    @include buttonIntent($darkRed);
+  }
+  @include m('warning') {
+    @include buttonIntent($orange);
+  }
+  @include m('info') {
+    @include buttonIntent($light-blue);
+  }
+  @include m('success') {
+    @include buttonIntent($green);
+  }
+}
