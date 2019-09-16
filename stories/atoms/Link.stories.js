@@ -16,14 +16,12 @@ stories.add('withKnobs', () => {
     large: 'large'
   }
   const size = radios('size', sizeOptions, 'normal')
-  const small = size === 'small'
-  const large = size === 'large'
 
   return (
     <Link
       button={button}
-      small={small}
-      large={large}
+      size={size}
+      onClick={e => e.preventDefault()}
     >
       Link
     </Link>

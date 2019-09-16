@@ -12,7 +12,11 @@ stories.add('withKnobs', () => {
   const typeOptions = {
     Text: 'text',
     Number: 'number',
-    Email: 'email'
+    Email: 'email',
+    Radio: 'radio',
+    Checkbox: 'checkbox',
+    Select: 'select',
+    Textarea: 'textarea'
   }
   const label = text('label', 'Name')
   const type = select('type', typeOptions, 'text')
@@ -20,12 +24,23 @@ stories.add('withKnobs', () => {
   if (errors) {
     errors = [errors]
   }
+  const options = [{
+    value: 'one',
+    label: 'One'
+  }, {
+    value: 'two',
+    label: 'Two'
+  }, {
+    value: 'three',
+    label: 'Three'
+  }]
 
   return (
     <FormControl
       label={label}
       type={type}
       errors={errors}
+      options={options}
     />
   )
 })

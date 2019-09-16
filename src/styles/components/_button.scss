@@ -10,10 +10,17 @@
       0 0 0 5px rgba(black, 0.2)
     ;
   }
+  &:active {
+    transform: scale(0.95);
+    box-shadow:
+      -5px -5px 20px rgba(darken($color, $percentage), 1) inset,
+      0 0 0 1px rgba(black, 0.2)
+    ;
+  }
 }
 
 .button {
-  transition: $transition;
+  transition: $transition, transform 50ms;
   display: inline-flex;
   border: 0;
   border-radius: 3px;
@@ -31,6 +38,9 @@
     @include loader();
     content: "";
     display: none;
+  }
+  &[disabled] {
+    pointer-events: none;
   }
   @include m('block') {
     width: 100%;
@@ -62,9 +72,6 @@
     &::after {
       display: block;
     }
-  }
-  &[disabled] {
-    pointer-events: none;
   }
   @include m('primary') {
     @include buttonIntent($purple, 10%);

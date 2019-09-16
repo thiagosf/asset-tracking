@@ -31,13 +31,15 @@ yarn Test
 - [x] Link
 - [x] Transition
 - [x] Button
-- [ ] Input
+- [x] Input
 - [ ] Select
 - [ ] Radio
+- [ ] Checkbox
+- [ ] Textarea
 
 ### Molecules
 
-- [x] FormControl
+- [ ] FormControl
 - [x] Logo
 
 ### Organisms

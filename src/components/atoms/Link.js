@@ -5,8 +5,7 @@ class Link extends Component {
   static propTypes = {
     to: PropTypes.string,
     button: PropTypes.boolean,
-    small: PropTypes.boolean,
-    large: PropTypes.boolean,
+    size: PropTypes.string
   };
 
   static defaultProps = {
@@ -17,19 +16,27 @@ class Link extends Component {
     const {
       to,
       button,
-      small,
-      large
+      size
     } = this.props
     let classes = ['link']
     if (button) classes.push('link--button')
-    if (small) classes.push('link--small')
-    if (large) classes.push('link--large')
+    if (size) classes.push(`link--${size}`)
+    const safeProps = this._safeProps()
     return (
       <a
+        {...safeProps}
         href={to}
         className={classes.join(' ')}
       >{this.props.children}</a>
     )
+  };
+
+  _safeProps = () => {
+    let safeProps = { ...this.props }
+    delete safeProps.to
+    delete safeProps.button
+    delete safeProps.size
+    return safeProps
   };
 }
 

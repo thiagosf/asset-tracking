@@ -1,0 +1,55 @@
+@mixin inputIntent ($color) {
+  &::after {
+    background: $color;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "";
+    pointer-events: none;
+  }
+}
+
+.input-wrapper {
+  position: relative;
+  @include inputIntent($blue-pink-gradient);
+  @include e('input') {
+    border: 0;
+    width: 100%;
+    background: transparent !important;
+    outline: none !important;
+    box-shadow: none !important;
+    color: white;
+    font-size: 16px;
+    line-height: 1;
+    height: 40px;
+  }
+  @include m('small') {
+    .input-wrapper__input {
+      font-size: 12px;
+      height: 30px;
+    }
+  }
+  @include m('large') {
+    .input-wrapper__input {
+      font-size: 22px;
+      height: 50px;
+    }
+  }
+  @include m('primary') {
+    @include inputIntent($purple);
+  }
+  @include m('success') {
+    @include inputIntent($green);
+  }
+  @include m('danger') {
+    @include inputIntent($darkRed);
+  }
+  @include m('warning') {
+    @include inputIntent($orange);
+  }
+  @include m('info') {
+    @include inputIntent($light-blue);
+  }
+}

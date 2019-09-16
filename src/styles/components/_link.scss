@@ -1,4 +1,5 @@
 .link {
+  display: inline-block;
   @include m('small') {
     font-size: 12px;
   }
@@ -24,6 +25,9 @@
         height: 100%;
         background: rgba(white, 0.1);
       }
+    }
+    &:active {
+      transform: scale(0.95);
     }
   }
 }
