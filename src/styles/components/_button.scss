@@ -74,18 +74,18 @@
     }
   }
   @include m('primary') {
-    @include buttonIntent($purple, 10%);
+    @include buttonIntent($primary, 10%);
   }
   @include m('danger') {
-    @include buttonIntent($darkRed);
+    @include buttonIntent($danger);
   }
   @include m('warning') {
-    @include buttonIntent($orange);
+    @include buttonIntent($warning);
   }
   @include m('info') {
-    @include buttonIntent($light-blue);
+    @include buttonIntent($info);
   }
   @include m('success') {
-    @include buttonIntent($green);
+    @include buttonIntent($success);
   }
 }

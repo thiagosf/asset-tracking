@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { withKnobs, select, radios, boolean } from '@storybook/addon-knobs'
+import { withKnobs, radios, boolean } from '@storybook/addon-knobs'
 import { Button } from '../../src/components/atoms'
 import { decoratorContainer } from '../helpers'
 

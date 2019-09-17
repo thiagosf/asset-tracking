@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-class Input extends Component {
+class Checkbox extends Component {
   static propTypes = {
     size: PropTypes.string,
     intent: PropTypes.string
@@ -12,10 +12,16 @@ class Input extends Component {
     const className = this._getClasses()
     return (
       <div className={className}>
-        <input
-          {...safeProps}
-          className='input-wrapper__input'
-        />
+        <label>
+          <input
+            {...safeProps}
+            type='checkbox'
+            className='checkbox-wrapper__input'
+          />
+          <span className='checkbox-wrapper__check'>
+            <span className='checkbox-wrapper__check__icon'></span>
+          </span>
+        </label>
       </div>
     )
   };
@@ -26,9 +32,9 @@ class Input extends Component {
       intent,
       className
     } = this.props
-    let classes = ['input-wrapper']
-    if (size) classes.push(`input-wrapper--${size}`)
-    if (intent) classes.push(`input-wrapper--${intent}`)
+    let classes = ['checkbox-wrapper']
+    if (size) classes.push(`checkbox-wrapper--${size}`)
+    if (intent) classes.push(`checkbox-wrapper--${intent}`)
     if (className) classes.push(className)
     return classes.join(' ')
   };
@@ -41,4 +47,4 @@ class Input extends Component {
   };
 }
 
-export default Input
+export default Checkbox

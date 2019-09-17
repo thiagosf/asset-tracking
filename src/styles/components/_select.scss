@@ -1,0 +1,18 @@
+.select-wrapper {
+  position: relative;
+  @include e('select') {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+  }
+  &::before {
+    pointer-events: none;
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: currentColor;
+  }
+}

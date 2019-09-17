@@ -28,29 +28,29 @@
     font-size: 16px;
     opacity: 0.7;
   }
-  @include e('input') {
-    position: relative;
-    &::after {
-      background: $blue-pink-gradient;
-      height: 2px;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      content: "";
-      pointer-events: none;
-    }
-    @include e('input') {
-      border: 0;
-      width: 100%;
-      background: transparent !important;
-      outline: none !important;
-      box-shadow: none !important;
-      color: white;
-      font-size: 16px;
-      line-height: 1;
-      height: 40px;
-    }
-  }
+  // @include e('input') {
+  //   position: relative;
+  //   &::after {
+  //     background: $blue-pink-gradient;
+  //     height: 2px;
+  //     position: absolute;
+  //     bottom: 0;
+  //     left: 0;
+  //     right: 0;
+  //     content: "";
+  //     pointer-events: none;
+  //   }
+  //   @include e('input') {
+  //     border: 0;
+  //     width: 100%;
+  //     background: transparent !important;
+  //     outline: none !important;
+  //     box-shadow: none !important;
+  //     color: white;
+  //     font-size: 16px;
+  //     line-height: 1;
+  //     height: 40px;
+  //   }
+  // }
   @include e('buttons') {}
 }

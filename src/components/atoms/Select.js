@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-class Input extends Component {
+class Select extends Component {
   static propTypes = {
     size: PropTypes.string,
-    intent: PropTypes.string
+    intent: PropTypes.string,
+    options: PropTypes.arrayOf(PropTypes.object).isRequired
   };
 
   render () {
@@ -12,10 +13,12 @@ class Input extends Component {
     const className = this._getClasses()
     return (
       <div className={className}>
-        <input
+        <select
           {...safeProps}
-          className='input-wrapper__input'
-        />
+          className='input-wrapper__input select-wrapper__select'
+        >
+          {this._getOptions()}
+        </select>
       </div>
     )
   };
@@ -26,7 +29,7 @@ class Input extends Component {
       intent,
       className
     } = this.props
-    let classes = ['input-wrapper']
+    let classes = ['input-wrapper', 'select-wrapper']
     if (size) classes.push(`input-wrapper--${size}`)
     if (intent) classes.push(`input-wrapper--${intent}`)
     if (className) classes.push(className)
@@ -37,8 +40,15 @@ class Input extends Component {
     let safeProps = { ...this.props }
     delete safeProps.size
     delete safeProps.intent
+    delete safeProps.options
     return safeProps
+  };
+
+  _getOptions = () => {
+    return this.props.options.map(item => {
+      return <option value={item.value}>{item.label}</option>
+    })
   };
 }
 
-export default Input
+export default Select

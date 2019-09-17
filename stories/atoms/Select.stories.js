@@ -1,16 +1,15 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, radios, boolean } from '@storybook/addon-knobs'
-import { Input } from '../../src/components/atoms'
+import { Select } from '../../src/components/atoms'
 import { decoratorContainer } from '../helpers'
 
-const stories = storiesOf('atoms/Input', module)
+const stories = storiesOf('atoms/Select', module)
 stories.addDecorator(decoratorContainer)
 stories.addDecorator(withKnobs)
 
 stories.add('withKnobs', () => {
   const disabled = boolean('disabled')
-  const readonly = boolean('readonly')
 
   const sizeOptions = {
     Small: 'small',
@@ -28,13 +27,23 @@ stories.add('withKnobs', () => {
     Success: 'success'
   }
   const intent = radios('intent', intentOptions, 'default')
+  const options = [{
+    value: 'one',
+    label: 'One'
+  }, {
+    value: 'two',
+    label: 'Two'
+  }, {
+    value: 'three',
+    label: 'Three'
+  }]
 
   return (
-    <Input
+    <Select
       disabled={disabled}
-      readOnly={readonly}
       size={size}
       intent={intent}
+      options={options}
     />
   )
 })

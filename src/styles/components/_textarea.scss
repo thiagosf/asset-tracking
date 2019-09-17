@@ -1,0 +1,17 @@
+.textarea-wrapper {
+  @include m('small') {
+    .textarea-wrapper__textarea {
+      font-size: 12px;
+    }
+  }
+  @include m('large') {
+    .textarea-wrapper__textarea {
+      font-size: 22px;
+    }
+  }
+  @include e('textarea') {
+    font-family: $base-font;
+    font-weight: $regular-weight;
+    height: auto;
+  }
+}

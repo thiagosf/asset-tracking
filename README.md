@@ -32,10 +32,10 @@ yarn Test
 - [x] Transition
 - [x] Button
 - [x] Input
-- [ ] Select
+- [x] Select
+- [x] Textarea
 - [ ] Radio
 - [ ] Checkbox
-- [ ] Textarea
 
 ### Molecules
 

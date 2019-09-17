@@ -1,10 +1,10 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { withKnobs, radios, boolean } from '@storybook/addon-knobs'
-import { Input } from '../../src/components/atoms'
+import { withKnobs, radios, boolean, number } from '@storybook/addon-knobs'
+import { Textarea } from '../../src/components/atoms'
 import { decoratorContainer } from '../helpers'
 
-const stories = storiesOf('atoms/Input', module)
+const stories = storiesOf('atoms/Textarea', module)
 stories.addDecorator(decoratorContainer)
 stories.addDecorator(withKnobs)
 
@@ -28,13 +28,15 @@ stories.add('withKnobs', () => {
     Success: 'success'
   }
   const intent = radios('intent', intentOptions, 'default')
+  const rows = number('rows', 5)
 
   return (
-    <Input
+    <Textarea
       disabled={disabled}
       readOnly={readonly}
       size={size}
       intent={intent}
+      rows={rows}
     />
   )
 })

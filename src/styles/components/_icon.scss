@@ -12,19 +12,19 @@
     height: 48px;
   }
   @include m('primary') {
-    fill: $purple;
+    fill: $primary;
   }
   @include m('danger') {
-    fill: $darkRed;
+    fill: $danger;
   }
   @include m('warning') {
-    fill: $orange;
+    fill: $warning;
   }
   @include m('info') {
-    fill: $light-blue;
+    fill: $info;
   }
   @include m('success') {
-    fill: $green;
+    fill: $success;
   }
   span {
     display: flex;

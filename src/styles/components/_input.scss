@@ -38,18 +38,18 @@
     }
   }
   @include m('primary') {
-    @include inputIntent($purple);
+    @include inputIntent($primary);
   }
   @include m('success') {
-    @include inputIntent($green);
+    @include inputIntent($success);
   }
   @include m('danger') {
-    @include inputIntent($darkRed);
+    @include inputIntent($danger);
   }
   @include m('warning') {
-    @include inputIntent($orange);
+    @include inputIntent($warning);
   }
   @include m('info') {
-    @include inputIntent($light-blue);
+    @include inputIntent($info);
   }
 }

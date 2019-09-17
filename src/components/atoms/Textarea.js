@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
-class Input extends Component {
+class Textarea extends Component {
   static propTypes = {
     size: PropTypes.string,
     intent: PropTypes.string
@@ -12,10 +12,10 @@ class Input extends Component {
     const className = this._getClasses()
     return (
       <div className={className}>
-        <input
+        <textarea
           {...safeProps}
-          className='input-wrapper__input'
-        />
+          className='input-wrapper__input textarea-wrapper__textarea'
+        ></textarea>
       </div>
     )
   };
@@ -26,8 +26,8 @@ class Input extends Component {
       intent,
       className
     } = this.props
-    let classes = ['input-wrapper']
-    if (size) classes.push(`input-wrapper--${size}`)
+    let classes = ['input-wrapper', 'textarea-wrapper']
+    if (size) classes.push(`textarea-wrapper--${size}`)
     if (intent) classes.push(`input-wrapper--${intent}`)
     if (className) classes.push(className)
     return classes.join(' ')
@@ -41,4 +41,4 @@ class Input extends Component {
   };
 }
 
-export default Input
+export default Textarea

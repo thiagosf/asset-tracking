@@ -1,10 +1,10 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { withKnobs, radios, boolean } from '@storybook/addon-knobs'
-import { Input } from '../../src/components/atoms'
+import { withKnobs, radios, boolean, number } from '@storybook/addon-knobs'
+import { Checkbox } from '../../src/components/atoms'
 import { decoratorContainer } from '../helpers'
 
-const stories = storiesOf('atoms/Input', module)
+const stories = storiesOf('atoms/Checkbox', module)
 stories.addDecorator(decoratorContainer)
 stories.addDecorator(withKnobs)
 
@@ -30,7 +30,7 @@ stories.add('withKnobs', () => {
   const intent = radios('intent', intentOptions, 'default')
 
   return (
-    <Input
+    <Checkbox
       disabled={disabled}
       readOnly={readonly}
       size={size}
