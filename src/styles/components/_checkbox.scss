@@ -68,4 +68,19 @@
       transform: rotate(-45deg) scale(0.5);
     }
   }
+  @include m('primary') {
+    color: $primary;
+  }
+  @include m('danger') {
+    color: $danger;
+  }
+  @include m('warning') {
+    color: $warning;
+  }
+  @include m('info') {
+    color: $info;
+  }
+  @include m('success') {
+    color: $success;
+  }
 }

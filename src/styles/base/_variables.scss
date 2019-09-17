@@ -8,8 +8,8 @@ $white: white;
 $dark-gray: #444;
 $gray: #E2E2E2;
 $orange: #FFAC4B;
-$darkOrange: #F57C00;
-$darkRed: #D32F2F;
+$dark-orange: #F57C00;
+$dark-red: #D32F2F;
 $red: #E58B8B;
 $purple: #755CB9;
 
@@ -17,7 +17,7 @@ $purple: #755CB9;
 
 $blue-gradient: linear-gradient(180deg, #6BBDF9, #6AA5D0);
 $blue-pink-gradient: linear-gradient(90deg, #77C3F7, #ECC5FD);
-$red-orange-gradient: linear-gradient(90deg, $darkRed, $darkOrange);
+$red-orange-gradient: linear-gradient(90deg, $dark-red, $dark-orange);
 
 // fonts
 

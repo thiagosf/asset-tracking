@@ -1,0 +1,63 @@
+.radio-wrapper {
+  position: relative;
+  display: inline-flex;
+  @include m('small') {
+    .radio-wrapper__check {
+      border-width: 1px;
+      border-radius: 7px;
+      width: 14px;
+      height: 14px;
+    }
+  }
+  @include m('large') {
+    .radio-wrapper__check {
+      border-width: 4px;
+      border-radius: 20px;
+      width: 40px;
+      height: 40px;
+    }
+  }
+  @include e('input') {
+    position: absolute;
+    opacity: 0;
+    &:checked {
+      ~ .radio-wrapper__check {
+        background: currentColor;
+      }
+    }
+    &[disabled] {
+      ~ .radio-wrapper__check {
+        pointer-events: none;
+        opacity: 0.3;
+      }
+    }
+  }
+  @include e('label') {
+    display: inline-flex;
+  }
+  @include e('check') {
+    transition: $transition;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    border: 2px solid;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  @include m('primary') {
+    color: $primary;
+  }
+  @include m('danger') {
+    color: $danger;
+  }
+  @include m('warning') {
+    color: $warning;
+  }
+  @include m('info') {
+    color: $info;
+  }
+  @include m('success') {
+    color: $success;
+  }
+}
