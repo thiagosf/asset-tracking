@@ -35,7 +35,7 @@ yarn Test
 - [x] Select
 - [x] Textarea
 - [ ] Radio
-- [ ] Checkbox
+- [x] Checkbox
 
 ### Molecules
 

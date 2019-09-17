@@ -10,7 +10,6 @@ stories.addDecorator(withKnobs)
 
 stories.add('withKnobs', () => {
   const disabled = boolean('disabled')
-  const readonly = boolean('readonly')
 
   const sizeOptions = {
     Small: 'small',
@@ -32,7 +31,6 @@ stories.add('withKnobs', () => {
   return (
     <Checkbox
       disabled={disabled}
-      readOnly={readonly}
       size={size}
       intent={intent}
     />
