@@ -27,30 +27,19 @@
     display: block;
     font-size: 16px;
     opacity: 0.7;
+    margin: 0 0 5px 0;
+    @include e('text') {
+      display: inline-block;
+      margin-left: 10px;
+    }
+    @include m('checkbox') {
+      display: flex;
+      align-items: center;
+    }
+    @include m('radio') {
+      display: flex;
+      align-items: center;
+    }
   }
-  // @include e('input') {
-  //   position: relative;
-  //   &::after {
-  //     background: $blue-pink-gradient;
-  //     height: 2px;
-  //     position: absolute;
-  //     bottom: 0;
-  //     left: 0;
-  //     right: 0;
-  //     content: "";
-  //     pointer-events: none;
-  //   }
-  //   @include e('input') {
-  //     border: 0;
-  //     width: 100%;
-  //     background: transparent !important;
-  //     outline: none !important;
-  //     box-shadow: none !important;
-  //     color: white;
-  //     font-size: 16px;
-  //     line-height: 1;
-  //     height: 40px;
-  //   }
-  // }
   @include e('buttons') {}
 }

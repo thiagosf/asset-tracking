@@ -16,7 +16,8 @@ stories.add('withKnobs', () => {
     Radio: 'radio',
     Checkbox: 'checkbox',
     Select: 'select',
-    Textarea: 'textarea'
+    Textarea: 'textarea',
+    Calendar: 'calendar'
   }
   const label = text('label', 'Name')
   const type = select('type', typeOptions, 'text')

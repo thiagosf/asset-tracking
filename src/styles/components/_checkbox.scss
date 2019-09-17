@@ -1,5 +1,6 @@
 .checkbox-wrapper {
   position: relative;
+  display: inline-flex;
   @include m('small') {
     .checkbox-wrapper__check {
       border-width: 1px;
@@ -46,6 +47,9 @@
       }
     }
   }
+  @include e('label') {
+    display: inline-flex;
+  }
   @include e('check') {
     transition: $transition;
     width: 20px;
@@ -60,7 +64,7 @@
       transition-delay: 100ms;
       width: 10px;
       height: 7px;
-      display: inline-block;
+      display: inline-flex;
       opacity: 0;
       position: absolute;
       border-left: 3px solid $dark-blue;

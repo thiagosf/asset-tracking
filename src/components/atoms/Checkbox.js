@@ -12,7 +12,7 @@ class Checkbox extends Component {
     const className = this._getClasses()
     return (
       <div className={className}>
-        <label>
+        <label className='checkbox-wrapper__label'>
           <input
             {...safeProps}
             type='checkbox'

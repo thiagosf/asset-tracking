@@ -1,4 +1,12 @@
 import React, { Component } from 'react'
+import Calendar from 'react-calendar'
+import {
+  Input,
+  Checkbox,
+  Radio,
+  Select,
+  Textarea
+} from '../atoms'
 
 class FormControl extends Component {
   static defaultProps = {
@@ -12,10 +20,8 @@ class FormControl extends Component {
   render () {
     return (
       <div className={this._getClasses()}>
-        <label className="form__label">{this.props.label}</label>
-        <div className="form__input">
-          <input type={this.props.type} name={this.props.name} className="form__input__input" onChange={this._onChange} />
-        </div>
+        {this._getLabel()}
+        {this._getInput()}
         {this._getErrors()}
         {this.props.children}
       </div>
@@ -41,6 +47,84 @@ class FormControl extends Component {
 
   _onChange = event => {
     this.props.onChange(this.props.name, event.target.value)
+  };
+
+  _getLabel = () => {
+    const { type, label } = this.props
+    switch (type) {
+      case 'checkbox':
+      case 'radio':
+        return false
+
+      default:
+        return (
+          <label
+            className="form__label"
+          >{label}</label>
+        )
+    }
+  };
+
+  _getInput = () => {
+    const { props } = this
+    const { type, label } = props
+    switch (type) {
+      case 'checkbox':
+        return (
+          <div>
+            <label
+              className="form__label form__label--checkbox"
+            >
+              <Checkbox {...props} />
+              <span
+                className="form__label__text"
+              >{label}</span>
+            </label>
+          </div>
+        )
+
+      case 'radio':
+        return (
+          <div>
+            <label
+              className="form__label form__label--radio"
+            >
+              <Radio {...props} />
+              <span
+                className="form__label__text"
+              >{label}</span>
+            </label>
+          </div>
+        )
+
+      case 'textarea':
+        return (
+          <Textarea {...props} />
+        )
+
+      case 'select':
+        return (
+          <Select {...props} />
+        )
+
+      case 'calendar':
+        return (
+          <div>
+            <Input {...props} />
+            <Calendar
+              value={props.value}
+              onChange={value => {
+                props.onChange(value)
+              }}
+            />
+          </div>
+        )
+
+      default:
+        return (
+          <Input {...props} />
+        )
+    }
   };
 }
 
