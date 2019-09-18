@@ -8,7 +8,7 @@
   }
   @include e('text') {
     font-size: 20px;
-    font-weight: $weight-bold;
+    font-weight: $bold-weight;
     text-transform: lowercase;
   }
 }

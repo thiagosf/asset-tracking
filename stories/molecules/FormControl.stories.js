@@ -1,6 +1,6 @@
 import React from 'react'
 import { storiesOf } from '@storybook/react'
-import { withKnobs, select, text } from '@storybook/addon-knobs'
+import { withKnobs, select, text, boolean } from '@storybook/addon-knobs'
 import { FormControl } from '../../src/components/molecules'
 import { decoratorContainerLeft } from '../helpers'
 
@@ -9,6 +9,7 @@ stories.addDecorator(decoratorContainerLeft)
 stories.addDecorator(withKnobs)
 
 stories.add('withKnobs', () => {
+  const disabled = boolean('disabled')
   const typeOptions = {
     Text: 'text',
     Number: 'number',
@@ -38,10 +39,23 @@ stories.add('withKnobs', () => {
 
   return (
     <FormControl
+      disabled={disabled}
       label={label}
       type={type}
       errors={errors}
       options={options}
+    />
+  )
+})
+
+stories.add('calendar', () => {
+  let value = new Date()
+  return (
+    <FormControl
+      label='Date'
+      type='calendar'
+      value={value}
+      onChange={value => console.log(value)}
     />
   )
 })

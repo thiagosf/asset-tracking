@@ -5,7 +5,8 @@ import {
   Checkbox,
   Radio,
   Select,
-  Textarea
+  Textarea,
+  Icon
 } from '../atoms'
 
 class FormControl extends Component {
@@ -15,6 +16,10 @@ class FormControl extends Component {
     name: null,
     label: null,
     onChange: () => {}
+  };
+
+  state = {
+    showCalendar: false
   };
 
   render () {
@@ -68,6 +73,7 @@ class FormControl extends Component {
   _getInput = () => {
     const { props } = this
     const { type, label } = props
+    const { showCalendar } = this.state
     switch (type) {
       case 'checkbox':
         return (
@@ -108,15 +114,43 @@ class FormControl extends Component {
         )
 
       case 'calendar':
+        let formatedDate = null
+        if (props.value) {
+          // @todo: format date
+          // formatedDate = moment.utc(props.value).format()
+          formatedDate = props.value
+        }
         return (
-          <div>
-            <Input {...props} />
-            <Calendar
-              value={props.value}
-              onChange={value => {
-                props.onChange(value)
-              }}
+          <div
+            className='input-and-calendar'
+            onClick={() => {
+              if (!showCalendar) {
+                this.setState({
+                  showCalendar: true
+                })
+              }
+            }}
+          >
+            <Input
+              {...props}
+              value={formatedDate}
+              readOnly
             />
+            {showCalendar &&
+              <Calendar
+                value={props.value}
+                prevLabel={<Icon name='arrow-prev' />}
+                prev2Label={<Icon name='arrow-double-prev' />}
+                nextLabel={<Icon name='arrow-next' />}
+                next2Label={<Icon name='arrow-double-next' />}
+                onChange={value => {
+                  props.onChange(value)
+                  this.setState({
+                    showCalendar: false
+                  })
+                }}
+              />
+            }
           </div>
         )
 

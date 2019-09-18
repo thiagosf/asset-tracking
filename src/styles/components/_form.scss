@@ -43,3 +43,21 @@
   }
   @include e('buttons') {}
 }
+
+.input-and-calendar {
+  position: relative;
+  .react-calendar {
+    position: absolute;
+    top: calc(100% + 10px);
+    left: 0;
+    right: 0;
+    width: 100%;
+    * {
+      font-family: $base-font;
+      font-size: 14px;
+    }
+    .react-calendar__navigation__label {
+      font-weight: $bold-weight;
+    }
+  }
+}
