@@ -1,5 +1,9 @@
-import { configure } from '@storybook/react'
-import '!style-loader!css-loader!sass-loader!../src/styles/styles.scss';
+import {
+  configure,
+  addParameters
+} from '@storybook/react'
+import '!style-loader!css-loader!sass-loader!../src/styles/styles.scss'
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 
 configure(() => {
   const atoms = require.context('../stories/atoms', true, /\.stories\.js$/)
@@ -16,4 +20,8 @@ configure(() => {
 
   const pages = require.context('../stories/pages', true, /\.stories\.js$/)
   pages.keys().forEach(filename => pages(filename))
+
+  addParameters({
+    viewport: INITIAL_VIEWPORTS
+  })
 }, module)

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Calendar from 'react-calendar'
+import fecha from 'fecha'
 import {
   Input,
   Checkbox,
@@ -11,6 +12,7 @@ import {
 
 class FormControl extends Component {
   static defaultProps = {
+    value: '',
     errors: [],
     type: 'text',
     name: null,
@@ -51,7 +53,7 @@ class FormControl extends Component {
   };
 
   _onChange = event => {
-    this.props.onChange(this.props.name, event.target.value)
+    this.props.onChange(event.target.value)
   };
 
   _getLabel = () => {
@@ -81,7 +83,7 @@ class FormControl extends Component {
             <label
               className="form__label form__label--checkbox"
             >
-              <Checkbox {...props} />
+              <Checkbox {...props} onChange={this._onChange} />
               <span
                 className="form__label__text"
               >{label}</span>
@@ -95,7 +97,7 @@ class FormControl extends Component {
             <label
               className="form__label form__label--radio"
             >
-              <Radio {...props} />
+              <Radio {...props} onChange={this._onChange} />
               <span
                 className="form__label__text"
               >{label}</span>
@@ -105,20 +107,25 @@ class FormControl extends Component {
 
       case 'textarea':
         return (
-          <Textarea {...props} />
+          <Textarea {...props} onChange={this._onChange} />
         )
 
       case 'select':
         return (
-          <Select {...props} />
+          <Select {...props} onChange={this._onChange} />
         )
 
       case 'calendar':
-        let formatedDate = null
+        let dateValue = null
+        let formatedDate = ''
         if (props.value) {
-          // @todo: format date
-          // formatedDate = moment.utc(props.value).format()
-          formatedDate = props.value
+          try {
+            dateValue = fecha.format(props.value, 'DD/MM/YYYY')
+            formatedDate = dateValue
+          } catch (error) {
+            dateValue = null
+            formatedDate = ''
+          }
         }
         return (
           <div
@@ -137,26 +144,28 @@ class FormControl extends Component {
               readOnly
             />
             {showCalendar &&
-              <Calendar
-                value={props.value}
-                prevLabel={<Icon name='arrow-prev' />}
-                prev2Label={<Icon name='arrow-double-prev' />}
-                nextLabel={<Icon name='arrow-next' />}
-                next2Label={<Icon name='arrow-double-next' />}
-                onChange={value => {
-                  props.onChange(value)
-                  this.setState({
-                    showCalendar: false
-                  })
-                }}
-              />
+              <div className="calendar">
+                <Calendar
+                  value={dateValue}
+                  prevLabel={<Icon name='arrow-prev' />}
+                  prev2Label={<Icon name='arrow-double-prev' />}
+                  nextLabel={<Icon name='arrow-next' />}
+                  next2Label={<Icon name='arrow-double-next' />}
+                  onChange={value => {
+                    props.onChange(value)
+                    this.setState({
+                      showCalendar: false
+                    })
+                  }}
+                />
+              </div>
             }
           </div>
         )
 
       default:
         return (
-          <Input {...props} />
+          <Input {...props} onChange={this._onChange} />
         )
     }
   };

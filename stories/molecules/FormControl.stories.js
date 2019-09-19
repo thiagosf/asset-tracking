@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { storiesOf } from '@storybook/react'
 import { withKnobs, select, text, boolean } from '@storybook/addon-knobs'
 import { FormControl } from '../../src/components/molecules'
@@ -37,25 +37,29 @@ stories.add('withKnobs', () => {
     label: 'Three'
   }]
 
+  const [value, setValue] = useState('')
+
   return (
     <FormControl
+      value={value}
       disabled={disabled}
       label={label}
       type={type}
       errors={errors}
       options={options}
+      onChange={setValue}
     />
   )
 })
 
 stories.add('calendar', () => {
-  let value = new Date()
+  const [value, setValue] = useState(new Date())
   return (
     <FormControl
       label='Date'
       type='calendar'
       value={value}
-      onChange={value => console.log(value)}
+      onChange={setValue}
     />
   )
 })
