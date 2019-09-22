@@ -120,8 +120,8 @@ class FormControl extends Component {
         let formatedDate = ''
         if (props.value) {
           try {
-            dateValue = fecha.format(props.value, 'DD/MM/YYYY')
-            formatedDate = dateValue
+            dateValue = props.value
+            formatedDate = fecha.format(dateValue, 'DD/MM/YYYY')
           } catch (error) {
             dateValue = null
             formatedDate = ''
