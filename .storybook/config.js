@@ -1,9 +1,13 @@
 import {
   configure,
-  addParameters
+  addParameters,
+  addDecorator
 } from '@storybook/react'
 import '!style-loader!css-loader!sass-loader!../src/styles/styles.scss'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
+import StoryRouter from 'storybook-react-router'
+
+addDecorator(StoryRouter())
 
 configure(() => {
   const atoms = require.context('../stories/atoms', true, /\.stories\.js$/)

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import { Logo } from '../molecules'
+import { Logo, HeaderMenu } from '../molecules'
 import { links } from '../../utils'
 
 export default class Header extends Component {
@@ -10,6 +10,7 @@ export default class Header extends Component {
         <Link to={links.get('home')}>
           <Logo />
         </Link>
+        <HeaderMenu />
       </header>
     )
   }

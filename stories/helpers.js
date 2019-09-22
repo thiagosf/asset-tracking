@@ -1,17 +1,5 @@
 import React from 'react'
 
-export const decoratorContainerLeft = storyFn => {
-  return makeDecorator(storyFn, {
-    textAlign: 'left'
-  })
-}
-
-export const decoratorContainer = storyFn => {
-  return makeDecorator(storyFn, {
-    textAlign: 'center'
-  })
-}
-
 export const makeDecorator = (storyFn, options = {}) => {
   const styles = {
     padding: '50px',
@@ -23,4 +11,16 @@ export const makeDecorator = (storyFn, options = {}) => {
       {storyFn()}
     </div>
   )
+}
+
+export const decoratorContainerLeft = storyFn => {
+  return makeDecorator(storyFn, {
+    textAlign: 'left'
+  })
+}
+
+export const decoratorContainer = storyFn => {
+  return makeDecorator(storyFn, {
+    textAlign: 'center'
+  })
 }
