@@ -9,8 +9,8 @@ stories.addDecorator(decoratorContainer)
 stories.addDecorator(withKnobs)
 
 stories.add('withKnobs', () => {
-  const spinner = boolean('spinner')
-  const disabled = boolean('disabled')
+  const spinner = boolean('spinner', false)
+  const disabled = boolean('disabled', false)
 
   const sizeOptions = {
     Small: 'small',

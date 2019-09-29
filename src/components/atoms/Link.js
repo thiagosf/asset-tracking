@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 class Link extends Component {
   static propTypes = {
     to: PropTypes.string,
-    button: PropTypes.boolean,
+    button: PropTypes.bool,
     size: PropTypes.string
   };
 

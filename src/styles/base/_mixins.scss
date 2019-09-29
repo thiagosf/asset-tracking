@@ -33,3 +33,12 @@
     @content;
   }
 }
+
+@mixin smoothShadow ($percentage: 0.05, $color: black, $init: 16px) {
+  box-shadow:
+    0 $init $init rgba($color, $percentage),
+    0 ($init*2) ($init*2) rgba($color, $percentage),
+    0 ($init*2*2) ($init*2*2) rgba($color, $percentage),
+    0 ($init*2*2*2) ($init*2*2*2) rgba($color, $percentage),
+    0 ($init*2*2*2*2) ($init*2*2*2*2) rgba($color, $percentage);
+}

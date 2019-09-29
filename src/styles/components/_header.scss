@@ -3,7 +3,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba($blue, 0.9);
   a {
     text-decoration: none;
+  }
+  @include tabletUp {
+    justify-content: flex-start;
+    padding: 0 $small-gutter;
   }
 }

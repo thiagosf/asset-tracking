@@ -9,7 +9,7 @@ stories.addDecorator(decoratorContainerLeft)
 stories.addDecorator(withKnobs)
 
 stories.add('withKnobs', () => {
-  const disabled = boolean('disabled')
+  const disabled = boolean('disabled', false)
   const typeOptions = {
     Text: 'text',
     Number: 'number',

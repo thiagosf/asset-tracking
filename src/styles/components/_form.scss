@@ -51,7 +51,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(black, 0.5);
+    background: rgba(black, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -60,18 +60,32 @@
     animation: openOverlayCalendar 200ms forwards;
   }
   .react-calendar {
+    @include smoothShadow();
     border: 0;
     border-radius: 5px;
     padding: 10px;
     transform: scale(0.95);
     opacity: 0;
     animation: openCalendar 300ms forwards;
+    background: darken($dark-blue, 7%);
     * {
       font-family: $base-font;
       font-size: 14px;
+      color: white;
     }
     .react-calendar__navigation__label {
       font-weight: $bold-weight;
+    }
+    .react-calendar__navigation button,
+    .react-calendar__tile {
+      transition: $transition;
+      border-radius: 2px;
+    }
+    .react-calendar__navigation button:enabled:hover,
+    .react-calendar__navigation button:enabled:focus,
+    .react-calendar__tile:enabled:hover,
+    .react-calendar__tile:enabled:focus {
+      background: darken($dark-blue, 30%);
     }
   }
 }

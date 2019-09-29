@@ -9,7 +9,7 @@ stories.addDecorator(decoratorContainer)
 stories.addDecorator(withKnobs)
 
 stories.add('withKnobs', () => {
-  const onlyIcon = boolean('onlyIcon')
+  const onlyIcon = boolean('onlyIcon', false)
 
   return (
     <Logo

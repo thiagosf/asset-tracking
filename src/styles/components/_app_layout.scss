@@ -1,0 +1,6 @@
+.app-layout {
+  @include e('content') {
+    margin-top: $header-height;
+    padding: $small-gutter;
+  }
+}

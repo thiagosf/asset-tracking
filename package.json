@@ -153,7 +153,6 @@
     "@storybook/addon-knobs": "^5.2.0",
     "@storybook/addon-links": "^5.2.1",
     "@storybook/addon-viewport": "^5.2.1",
-    "@storybook/react": "^5.2.0",
-    "storybook-react-router": "^1.0.7"
+    "@storybook/react": "^5.2.0"
   }
 }

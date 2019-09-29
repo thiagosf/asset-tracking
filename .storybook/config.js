@@ -1,3 +1,4 @@
+import React from 'react'
 import {
   configure,
   addParameters,
@@ -5,9 +6,14 @@ import {
 } from '@storybook/react'
 import '!style-loader!css-loader!sass-loader!../src/styles/styles.scss'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
-import StoryRouter from 'storybook-react-router'
+import { Router, Route } from 'react-router'
+import { createMemoryHistory } from 'history'
 
-addDecorator(StoryRouter())
+addDecorator(story => (
+  <Router history={createMemoryHistory('/')}>
+    <Route path="/" component={() => story()} />
+  </Router>
+))
 
 configure(() => {
   const atoms = require.context('../stories/atoms', true, /\.stories\.js$/)

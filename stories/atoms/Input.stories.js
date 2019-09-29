@@ -9,8 +9,8 @@ stories.addDecorator(decoratorContainer)
 stories.addDecorator(withKnobs)
 
 stories.add('withKnobs', () => {
-  const disabled = boolean('disabled')
-  const readonly = boolean('readonly')
+  const disabled = boolean('disabled', false)
+  const readonly = boolean('readonly', false)
 
   const sizeOptions = {
     Small: 'small',

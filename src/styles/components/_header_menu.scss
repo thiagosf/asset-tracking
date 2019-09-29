@@ -1,0 +1,54 @@
+.header-menu {
+  @include tabletUp {
+    margin-left: $small-gutter;
+  }
+  @include e('open-nav') {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 24px $small-gutter;
+    cursor: pointer;
+    @include tabletUp {
+      display: none;
+    }
+  }
+  @include e('nav') {
+    transition: all 500ms $easeOutExpo;
+    position: fixed;
+    top: $header-height;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba($blue, 0.9);
+    transform: translateY(100%);
+    @include e('item') {
+      display: block;
+      @include tabletUp {
+        display: inline-flex;
+      }
+      @include e('link') {
+        transition: $transition;
+        padding: 10px $small-gutter;
+        display: block;
+        cursor: pointer;
+        &:hover {
+          background: rgba(black, 0.2);
+        }
+      }
+    }
+    @include tabletUp {
+      position: relative;
+      top: initial;
+      left: initial;
+      right: initial;
+      bottom: initial;
+      display: inline-flex;
+      transform: translateY(0%);
+    }
+  }
+  @include m('is-opened') {
+    .header-menu__nav {
+      transform: translateY(0%);
+    }
+  }
+}

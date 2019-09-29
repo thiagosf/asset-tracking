@@ -9,7 +9,7 @@ stories.addDecorator(decoratorContainer)
 stories.addDecorator(withKnobs)
 
 stories.add('withKnobs', () => {
-  const button = boolean('button')
+  const button = boolean('button', false)
   const sizeOptions = {
     small: 'small',
     normal: 'normal',
