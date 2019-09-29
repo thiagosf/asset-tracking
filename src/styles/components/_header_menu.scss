@@ -11,6 +11,24 @@
     @include tabletUp {
       display: none;
     }
+    .icon {
+      transition: all 500ms $easeOutExpo;
+      fill: white;
+      width: 18px;
+      height: 18px;
+      rect {
+        transition: all 500ms $easeOutExpo;
+        &[name="line-1"] {
+          transform: translate(301px, -108px);
+        }
+        &[name="line-2"] {
+          transform: translate(307px, -101px);
+        }
+        &[name="line-3"] {
+          transform: translate(314px, -94px);
+        }
+      }
+    }
   }
   @include e('nav') {
     transition: all 500ms $easeOutExpo;
@@ -19,7 +37,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba($blue, 0.9);
+    background: rgba($blue, 0.95);
     transform: translateY(100%);
     @include e('item') {
       display: block;
@@ -44,11 +62,26 @@
       bottom: initial;
       display: inline-flex;
       transform: translateY(0%);
+      background: transparent;
     }
   }
   @include m('is-opened') {
     .header-menu__nav {
       transform: translateY(0%);
+    }
+    .header-menu__open-nav {
+      .icon {
+        fill: $green;
+        rect[name="line-1"] {
+          transform: translate(301px, -108px);
+        }
+        rect[name="line-2"] {
+          transform: translate(301px, -101px);
+        }
+        rect[name="line-3"] {
+          transform: translate(301px, -94px);
+        }
+      }
     }
   }
 }
