@@ -1,0 +1,67 @@
+.asset {
+  background: $dark-blue-gradient;
+  padding: $small-gutter;
+  border-radius: 3px;
+  @include e('header') {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    text-transform: uppercase;
+    color: $white-70;
+    margin: 0 0 10px 0;
+  }
+  @include e('name_and_age') {
+    text-align: left;
+  }
+  @include e('name') {
+    font-size: 14px;
+  }
+  @include e('age') {
+    font-size: 12px;
+    color: $white-30;
+  }
+  @include e('broker') {
+    font-size: 12px;
+    font-weight: $bold-weight;
+  }
+  @include e('total-and-last-variation') {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  @include e('total') {
+    font-size: 26px;
+    font-weight: $bold-weight;
+  }
+  @include e('last-variation') {
+    font-size: 26px;
+    // font-weight: $extra-light-weight;
+  }
+  @include e('amount-and-currency') {
+    text-align: left;
+    font-size: 14px;
+  }
+  @include e('amount') {
+  }
+  @include e('currency') {
+  }
+  @include m('positive') {
+    .asset__last-variation {
+      color: $green;
+    }
+  }
+  @include m('negative') {
+    .asset__last-variation {
+      color: $red;
+    }
+  }
+  @include e('actions') {
+    display: flex;
+    margin: 10px -10px -10px -10px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    .button {
+      margin: 5px;
+    }
+  }
+}
