@@ -28,7 +28,7 @@ stories.add('default', () => {
   const amount = number('amount', 12102.54)
   const total = number('total', 12102.54)
   const currency = text('currency', 'BRL')
-  const age = number('age (in days)', 365)
+  const date = text('initial date', '2019-01-01 18:35:02')
   const annualProfitability = number('annual profitability', 4.4)
   const asset = {
     variations,
@@ -37,7 +37,7 @@ stories.add('default', () => {
     amount,
     total,
     currency,
-    age,
+    date,
     annual_profitability: annualProfitability
   }
   return (

@@ -64,4 +64,7 @@
       margin: 5px;
     }
   }
+  @include e('chart') {
+    margin: 20px 0;
+  }
 }

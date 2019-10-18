@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Button } from '../atoms'
+import { LineChart } from '../molecules'
+import { date, money, number } from '../../utils'
 
 export default class Asset extends Component {
   static propTypes = {
@@ -11,6 +13,8 @@ export default class Asset extends Component {
     const { asset } = this.props
     const lastVariation = this._getLastVariation()
     const classes = this._getClasses()
+    const chartData = this._getChartData()
+
     return (
       <div className={classes}>
         <header className="asset__header">
@@ -18,8 +22,8 @@ export default class Asset extends Component {
             <div className="asset__name">
               {asset.name}
             </div>
-            <div className="asset__age">
-              {asset.age}
+            <div className="asset__age" title={date.formatDatetime(asset.date)}>
+              {date.timeago(asset.date)}
             </div>
           </div>
           <div className="asset__broker">
@@ -28,10 +32,10 @@ export default class Asset extends Component {
         </header>
         <div className="asset__total-and-last-variation">
           <div className="asset__total">
-            {asset.total}
+            {money.format(asset.total)}
           </div>
           <div className="asset__last-variation">
-            {lastVariation}
+            {number.percentage(lastVariation)}
           </div>
         </div>
         {asset.amount !== asset.total &&
@@ -39,6 +43,9 @@ export default class Asset extends Component {
             <span className="asset__amount">{asset.amount}</span> <span className="asset__currency">{asset.currency}</span>
           </div>
         }
+        <div className="asset__chart">
+          <LineChart data={chartData} />
+        </div>
         <div className="asset__actions">
           <Button
             intent='primary'
@@ -64,7 +71,7 @@ export default class Asset extends Component {
     const { variations } = this.props.asset
     if (variations.length > 0) {
       const lastIndex = variations.length - 1
-      return variations[lastIndex].variation
+      return this._formatVariation(variations[lastIndex].variation)
     }
     return '?'
   };
@@ -83,4 +90,22 @@ export default class Asset extends Component {
     }
     return classes.join(' ')
   };
+
+  _getChartData = () => {
+    const { variations } = this.props.asset
+    let labels = []
+    let values = []
+    if (Array.isArray(variations)) {
+      variations.forEach(item => {
+        const label = date.formatToChart(item.date)
+        labels.push(label)
+        values.push(this._formatVariation(item.variation))
+      })
+    }
+    return { labels, values }
+  };
+
+  _formatVariation = value => {
+    return +(+value).toFixed(2)
+  }
 }

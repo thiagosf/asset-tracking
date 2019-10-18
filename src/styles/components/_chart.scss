@@ -1,0 +1,24 @@
+.chart {
+  @include m('line') {
+    height: 150px;
+    .apexcharts-tooltip {
+      background: $dark-blue !important;
+      border: 0 !important;
+      box-shadow: none !important;
+      font-size: 18px;
+      border-radius: 20px;
+    }
+    .apexcharts-tooltip-title {
+      border: 0 !important;
+      margin: 0;
+      padding: 5px 10px;
+      font-family: $base-font !important;
+    }
+    .apexcharts-datalabel {
+      font-family: $base-font !important;
+    }
+    .apexcharts-xcrosshairs {
+      display: none;
+    }
+  }
+}

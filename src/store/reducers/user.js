@@ -4,36 +4,27 @@ const initialState = {
   responseStatus: false
 }
 
-const identifier = 'user'
-
 export default (state = initialState, action) => {
-  let nextState
+  let nextState = Object.assign({}, state)
 
   switch (action.type) {
     case 'BEFORE_SEND':
-      if (action.identifier === identifier) {
-        nextState = {
-          ...state,
-          sending: true
-        }
-      }
+      nextState = Object.assign(nextState, {
+        sending: true
+      })
       break
 
     case 'AFTER_RESPONSE':
-      if (action.identifier === identifier) {
-        nextState = {
-          ...state,
-          sending: false
-        }
-      }
+      nextState = Object.assign(nextState, {
+        sending: false
+      })
       break
 
     case 'SET_USER':
-      nextState = {
-        ...state,
+      nextState = Object.assign(nextState, {
         user: action.user,
         checked: true
-      }
+      })
       break
 
     default:
