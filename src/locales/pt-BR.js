@@ -52,5 +52,10 @@ export default {
     ['há %s meses', 'em %s meses'],
     ['há um ano', 'em um ano'],
     ['há %s anos', 'em %s anos']
-  ]
+  ],
+  asset: {
+    timeline: 'Timeline',
+    newInfo: 'Nova info',
+    remove: 'Remover'
+  }
 }

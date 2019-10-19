@@ -85,11 +85,12 @@ class LineChart extends Component {
           highlightDataSeries: false,
         }
       },
+      colors: ['#6AB8F1'],
       fill: {
         type: 'gradient',
         gradient: {
           shade: 'dark',
-          gradientToColors: ['#FDD835'],
+          gradientToColors: ['#755CB9'],
           shadeIntensity: 1,
           type: 'horizontal',
           opacityFrom: 1,

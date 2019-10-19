@@ -47,7 +47,7 @@ yarn Test
 ### Organisms
 
 - [x] Header
-- [ ] Asset
+- [x] Asset
 
 ### Templates
 

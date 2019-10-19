@@ -9,9 +9,17 @@
     text-transform: uppercase;
     color: $white-70;
     margin: 0 0 10px 0;
+    flex-direction: column;
+    @include tabletUp {
+      flex-direction: row;
+    }
   }
   @include e('name_and_age') {
     text-align: left;
+    order: 1;
+    @include tabletUp {
+      order: 0;
+    }
   }
   @include e('name') {
     font-size: 14px;
@@ -23,11 +31,22 @@
   @include e('broker') {
     font-size: 12px;
     font-weight: $bold-weight;
+    order: 0;
+    margin: 0 0 5px 0;
+    @include tabletUp {
+      order: 1;
+      margin: 0;
+    }
   }
   @include e('total-and-last-variation') {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
+    flex-direction: column;
+    @include tabletUp {
+      align-items: center;
+      flex-direction: row;
+    }
   }
   @include e('total') {
     font-size: 26px;
@@ -35,13 +54,16 @@
   }
   @include e('last-variation') {
     font-size: 26px;
-    // font-weight: $extra-light-weight;
+    align-self: flex-end;
+    @include tabletUp {
+      align-self: flex-start;
+    }
   }
-  @include e('amount-and-currency') {
-    text-align: left;
-    font-size: 14px;
+  @include e('total-and-amount') {
   }
   @include e('amount') {
+    text-align: left;
+    font-size: 14px;
   }
   @include e('currency') {
   }

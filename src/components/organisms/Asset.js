@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Button } from '../atoms'
 import { LineChart } from '../molecules'
 import { date, money, number } from '../../utils'
+import { translate } from '../../locales'
 
 export default class Asset extends Component {
   static propTypes = {
@@ -31,18 +32,20 @@ export default class Asset extends Component {
           </div>
         </header>
         <div className="asset__total-and-last-variation">
-          <div className="asset__total">
-            {money.format(asset.total)}
+          <div className="asset__total-and-amount">
+            <div className="asset__total">
+              {money.format(asset.total)}
+            </div>
+            {asset.amount !== asset.total &&
+              <div className="asset__amount">
+                <span className="asset__amount">{asset.amount}</span> <span className="asset__currency">{asset.currency}</span>
+              </div>
+            }
           </div>
           <div className="asset__last-variation">
             {number.percentage(lastVariation)}
           </div>
         </div>
-        {asset.amount !== asset.total &&
-          <div className="asset__amount-and-currency">
-            <span className="asset__amount">{asset.amount}</span> <span className="asset__currency">{asset.currency}</span>
-          </div>
-        }
         <div className="asset__chart">
           <LineChart data={chartData} />
         </div>
@@ -51,17 +54,17 @@ export default class Asset extends Component {
             intent='primary'
             size='small'
             onPress={() => console.log('timeline')}
-          >Timeline</Button>
+          >{translate('asset.timeline')}</Button>
           <Button
             intent='success'
             size='small'
             onPress={() => console.log('new info')}
-          >New info</Button>
+          >{translate('asset.newInfo')}</Button>
           <Button
             intent='danger'
             size='small'
             onPress={() => console.log('danger')}
-          >Remove</Button>
+          >{translate('asset.remove')}</Button>
         </div>
       </div>
     )
