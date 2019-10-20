@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import Chart from 'react-apexcharts'
-import { sort } from '../../utils'
+import { sort, number } from '../../utils'
 
 const gridLineColor = '#484d60'
 const tickColor = 'white'
@@ -35,7 +35,7 @@ class LineChart extends Component {
           colors: ['white']
         },
         formatter (val, opt) {
-          return `${val}%`
+          return number.percentage(val)
         }
       },
       stroke: {
