@@ -48,6 +48,13 @@ yarn Test
 
 - [x] Header
 - [x] Asset
+- [x] NewAssetForm
+- [ ] NewAssetInfoForm
+- [ ] LoginForm
+- [ ] RegisterForm
+- [ ] PasswordForm
+- [ ] ChangePasswordForm
+- [ ] Timeline
 
 ### Templates
 
@@ -60,3 +67,6 @@ yarn Test
 - [ ] EditAccount
 - [ ] ForgotPassword
 - [ ] ChangePassword
+- [ ] Assets
+- [ ] NewAsset
+- [ ] Timeline

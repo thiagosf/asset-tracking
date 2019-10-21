@@ -57,5 +57,18 @@ export default {
     timeline: 'Timeline',
     newInfo: 'Nova info',
     remove: 'Remover'
+  },
+  newAsset: {
+    broker: 'Corretora',
+    asset: 'Ativo',
+    value: 'Valor',
+    newBroker: 'Nova corretora',
+    name: 'Nome',
+    description: 'Descrição',
+    yearlyProfitability: 'Rentabilidade anual',
+    currency: 'Moeda',
+    total: 'Total em R$',
+    amount: 'Montante',
+    date: 'Data inicial'
   }
 }

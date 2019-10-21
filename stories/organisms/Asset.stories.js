@@ -4,7 +4,7 @@ import { withKnobs, text, number } from '@storybook/addon-knobs'
 import { Asset } from '../../src/components/organisms'
 import { decoratorContainer } from '../helpers'
 
-const stories = storiesOf('molecules/Asset', module)
+const stories = storiesOf('organisms/Asset', module)
 
 stories.addDecorator(decoratorContainer)
 stories.addDecorator(withKnobs)

@@ -66,7 +66,7 @@ class FormControl extends Component {
       default:
         return (
           <label
-            className="form__label"
+            className="form__label form__label--small"
           >{label}</label>
         )
     }
